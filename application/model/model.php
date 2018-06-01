@@ -1,4 +1,4 @@
 <?php
 require_once ('db.php');
 
-$page_count = 3;
+$page_count = 9;

@@ -6,8 +6,10 @@
     <title>Product</title>
 </head>
 <body>
+<div id="one_product"><img src=" <?= '../' . $results3['picture'] ?>"></div>
 
 <table border="1">
+
     <tr>
         <td>Category</td>
         <td><?= $results3['category_name']?></td>
@@ -38,7 +40,7 @@
     </tr>
 </table><br>
 <form action="../index.php">
-    <button type="submit">Main page</button>
+    <input type='button' onclick='history.back(); 'value='Go back'/>
 </form>
 <?php
 ?>

@@ -65,7 +65,7 @@ function getNumPages($num_pages, $category_id)
 {
     if (empty($category_id)) {
         for ($i = 1; $i <= $num_pages; $i++) {
-            echo "<a href ='index.php?page=" . $i . "'>" . $i . "</a> ";
+            echo "<a href ='index.php?page=" . $i . "'>" . $i . " </a> ";
         }
     }
 }
@@ -84,7 +84,7 @@ function getNumPagesWithFilter($num_pages_after_filter, $category_id)
 function getCategories($results_category)
 {
     foreach ($results_category as $key => $value) {
-        echo "<a href ='index.php?category=" . $value['category_id'] . "'>" . $value['category_name'] . "</a><br>";
+        echo "<div id='category'><a href ='index.php?category=" . $value['category_id'] . "'>" . $value['category_name'] . "</a></div><br>";
     }
 }
 
@@ -94,7 +94,7 @@ function getProductList($results4, $category_id)
     if (empty($category_id)) {
         foreach ($results4 as $key => $value) {
             echo '<div id = "product"><a href ="view/product.php?id=' . $value['product_id'] . '">' . $value['name'] . ' ' .
-                $value['model'] . '</a><br><img src=' . $value['picture'] . '>' . '<br><br></div>';
+                $value['model'] . '<br><img src=' . $value['picture'] . '><br><br>' . $value['price'] . '</a><br><br></div>';
         }
     }
 }
@@ -105,7 +105,7 @@ function getProductListWithFilter($results6, $category_id)
     if (!empty($category_id)) {
         foreach ($results6 as $key => $value) {
             echo '<div id = "product"><a href ="view/product.php?id=' . $value['product_id'] . '">' . $value['name'] . ' ' .
-                $value['model'] . '</a><br><img src=' . $value['picture'] . '>' . '<br><br></div>';
+                $value['model'] . '<br><img src=' . $value['picture'] . '><br><br>' . $value['price'] . '</a><br><br></div>';
         }
     }
 }
