@@ -1,12 +1,10 @@
-<?php require_once('C:/OSPanel/domains/localhost/internet_shop/application/controller/controller.php');
-?>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Product</title>
 </head>
 <body>
-<div id="one_product"><img src=" <?= '../' . $results3['picture'] ?>"></div>
+<div id="one_product"><img src=" <?= $results3['picture'] ?>"></div>
 
 <table border="1">
 

@@ -1,14 +1,9 @@
 <?php
 require_once 'simple_html_dom.php';
 require_once 'model/db.php';
+require_once 'model/config.php';
 
-$url_main = "https://www.citrus.ua";
-$url_category = [
-    "1" => "/shop/goods/mobile/189/?sfield=price&sorder=desc",
-    "2" => "/shop/goods/tabletpc/262/?sfield=price&sorder=desc",
-    "3" => "/shop/goods/notebooks/188/?sfield=price&sorder=desc"
-];
-
+// getting product's list from parsing site
 function getProductList($url_main, $url_category)
 {
     $result[] = '';
@@ -28,7 +23,7 @@ function getProductList($url_main, $url_category)
                         $item['image_link'] = 'image/' . $image_link . '.jpg';
                     }
                 }
-                //$i - цикл по категории, переменная соответствует ид в базе
+                //$i - iteration by category, var = id in database
                 $item['category_id'] = $i;
 
                 $result[] = [
@@ -48,6 +43,7 @@ function getProductList($url_main, $url_category)
     return $result;
 }
 
+// insert products information from array to database
 function setProductsToDb($result, $pdo)
 {
     foreach ($result as $value) {
@@ -88,5 +84,5 @@ function downloadImages($url_main, $url_category)
 }
 
 $result = getProductList($url_main, $url_category);
-setProductsToDb($result, $pdo);
-downloadImages($url_main, $url_category);
+//setProductsToDb($result, $pdo);
+//downloadImages($url_main, $url_category);
